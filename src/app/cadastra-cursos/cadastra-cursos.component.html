@@ -1,0 +1,69 @@
+<h5>Cadastro de Cursos</h5>
+
+<p>Preencha os campos para incluir um curso.</p>
+
+
+
+<form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+
+    <div *ngIf="mensagem" class="mb-3 alert alert-primary">
+        <strong>{{mensagem}}</strong>
+    </div>
+
+    <div class="row mb-3">
+
+        <div class="col-md-6">
+
+            <label>Nome do Curso:</label>
+
+            <input type="text" class="form-control" formControlName="nome" />
+
+            <div class="text-danger" *ngIf="form.nome.touched && form.nome.invalid">
+
+                <span *ngIf="form.nome.errors.required">
+
+                    Porfavor, informe o nome do curso.
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <label>Sigla: </label>
+
+            <input type="text" class="form-control" formControlName="sigla" />
+
+            <div class="text-danger" *ngIf="form.sigla.touched && form.sigla.invalid">
+
+                <span *ngIf="form.sigla.errors.required">
+
+                    Porfavor, informe a sigla do curso.
+
+                </span>
+
+            </div>
+        </div>
+
+       
+    </div>
+
+   
+
+    <div class="row mb-3">
+
+        <div class="col-md-12">
+
+
+
+            <input type="submit" [disabled]="!formCadastro.valid" class="btn btn-success" value="Realizar Cadastro" />
+
+        </div>
+
+    </div>
+
+
+
+</form>

@@ -1,0 +1,44 @@
+<h5>Edição de Alunos</h5>
+<p>Utilize os campos para alterar os dados de um alun</p>
+
+<form [formGroup]="formEdicao" (ngSubmit)="onSubmit()">
+  <div *ngIf="mensagem" class="mb-3 alert alert-primary">
+    <strong>{{mensagem}}</strong>
+  </div>
+  <!--hidden ocultar, para nao permitir que edit é read-->
+  <!--campo oculto -->
+  <input type="hidden" formControlName="idAluno" />
+
+  <div class="row mb-3">
+    <!--mb margem inferior -->
+    <div class="col-md-6">
+      <!-- 6 colunas-->
+      <label>Nome do Aluno:</label>
+      <input type="text" class="form-control" formControlName="nome" />
+      <div class="text-danger" *ngIf="form.nome.touched && form.nome.invalid">
+        <span *ngIf="form.nome.errors.required">
+          Por favor insira o nome do aluno.
+        </span>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <!-- 6 colunas-->
+      <label> Endereco :</label>
+      <input type="text" class="form-control" formControlName="endereco" />
+      <div class="text-danger" *ngIf="form.endereco.touched && form.endereco.invalid">
+        <span *ngIf="form.endereco.errors.required">
+          Por favor insira o endereco do aluno.
+        </span>
+      </div>
+    </div>
+    
+  </div>
+ 
+
+
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <input type="submit" [disabled]="!formEdicao.valid" class="btn btn-success" value="Salvar Alterações" />
+    </div>
+  </div>
+</form>

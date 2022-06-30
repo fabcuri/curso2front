@@ -1,0 +1,69 @@
+<h5>Cadastro da Turma</h5>
+
+<p>Preencha os campos para incluir uma turma.</p>
+
+
+
+<form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+
+    <div *ngIf="mensagem" class="mb-3 alert alert-primary">
+        <strong>{{mensagem}}</strong>
+    </div>
+
+    <div class="row mb-3">
+
+        <div class="col-md-6">
+
+            <label>Semestre da Turma:</label>
+
+            <input type="text" class="form-control" formControlName="semestre" />
+
+            <div class="text-danger" *ngIf="form.semestre.touched && form.semestre.invalid">
+
+                <span *ngIf="form.semestre.errors.required">
+
+                    Porfavor, informe o semestre da turma.
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <label>Ano: </label>
+
+            <input type="text" class="form-control" formControlName="ano" />
+
+            <div class="text-danger" *ngIf="form.ano.touched && form.ano.invalid">
+
+                <span *ngIf="form.ano.errors.required">
+
+                    Porfavor, informe o ano da turma.
+
+                </span>
+
+            </div>
+        </div>
+
+       
+    </div>
+
+   
+
+    <div class="row mb-3">
+
+        <div class="col-md-12">
+
+
+
+            <input type="submit" [disabled]="!formCadastro.valid" class="btn btn-success" value="Realizar Cadastro" />
+
+        </div>
+
+    </div>
+
+
+
+</form>

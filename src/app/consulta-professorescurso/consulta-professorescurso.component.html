@@ -1,0 +1,31 @@
+<h5>Consulta de Cursos/Professores</h5>
+<p>Listagem de professores cadastrados por materia</p>
+
+<!--a tabela vai ter cabecalho, corpo e rodapé-->
+<div class="col-md-6">
+
+  <label>Informe o curso:</label>
+
+  <input type="text" class ="form-control" [(ngModel)]="idCurso" />
+
+ <button (click)="buscarProfessores()">Buscar</button>
+</div> 
+<table class="table table-hover table-sm">
+  
+  <thead>
+    <tr>
+    <td>Nome do Materia</td>
+    <td>Nome do Professor</td>
+ 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of professores">
+      <td>{{ nome }}</td>
+      <td>{{ a }}</td>
+     
+
+    </tr>
+    <td colspan="6">Total de registros :{{ professores.length }}</td>
+ 
+</table>

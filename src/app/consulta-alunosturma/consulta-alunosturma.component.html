@@ -1,0 +1,32 @@
+<h5>Consulta de Turmas/Alunos</h5>
+<p>Listagem de alunos cadastrados por turma</p>
+
+<!--a tabela vai ter cabecalho, corpo e rodapé-->
+<div class="col-md-6">
+
+  <label>Informe a turma:</label>
+
+  <input type="text" class ="form-control" [(ngModel)]="idTurma" />
+
+ <button (click)="buscarAlunos()">Buscar</button>
+</div> 
+<table class="table table-hover table-sm">
+  
+  <thead>
+    <tr>
+    <td>Semestre</td>
+    <td>Nome do Aluno</td>
+ 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of alunos">
+      <td>{{ semestre }}</td>
+      <td>{{ a }}</td>
+     
+
+    </tr>
+    <td colspan="6">Total de registros :{{ alunos.length }}</td>
+ 
+</table>
+
